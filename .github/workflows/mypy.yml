@@ -1,4 +1,4 @@
-name: Check code style
+name: Run mypy
 
 on:
   [ push, pull_request ]
@@ -29,10 +29,6 @@ jobs:
           python -m pip install --upgrade pip wheel setuptools
           python -m pip install -r requirements.txt
 
-      - name: Install pre-commit
+      - name: Run mypy
         run: |
-          pre-commit install
-
-      - name: Run pre-commit
-        run: |
-          pre-commit run --all-files --color always --verbose --show-diff-on-failure
+          mypy .
