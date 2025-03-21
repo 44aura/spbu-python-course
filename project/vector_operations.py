@@ -31,6 +31,8 @@ def vector_length(v: list[float]) -> float:
     Return:
     float - length of vector
     """
+    if not v:
+        raise ValueError("Vector must be non empty")
     return (vector_multiply(v, v)) ** 0.5
 
 

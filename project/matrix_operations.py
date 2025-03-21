@@ -10,6 +10,8 @@ def matrix_sum(mat1: list[list[float]], mat2: list[list[float]]) -> list[list[fl
     list[list[float] - matrix-result
 
     """
+    if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[0]):
+        raise ValueError("Matrices must have the same shape")
     res: list[list[float]] = []
     for i in range(len(mat1)):
         row: list = []
@@ -33,6 +35,10 @@ def matrix_multiply(
     list[list[float] - matrix-result
 
     """
+    if len(mat1[0]) != len(mat2):
+        raise ValueError(
+            "The number of the coloumns of the first matrix must equal the number of the rows of the second matrix"
+        )
     res: list[list[float]] = []
     for i in range(len(mat1)):
         row: list = []
@@ -55,4 +61,6 @@ def matrix_transpose(mat: list[list[float]]) -> list[list[float]]:
     Return:
     list[list[float]] - transposed matrix
     """
+    if not mat:
+        raise ValueError("Matrix must be non empty")
     return [[mat[j][i] for j in range(len(mat))] for i in range(len(mat[0]))]
