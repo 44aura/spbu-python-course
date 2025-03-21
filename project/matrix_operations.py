@@ -1,20 +1,23 @@
-def matrix_sum(mat1: list[list[float]], mat2: list[list[float]]) -> list[list[float]]:
+from typing import List
+
+
+def matrix_sum(mat1: List[List[float]], mat2: List[List[float]]) -> List[List[float]]:
     """
     Summarises two martices
 
     Args:
-    mat1:list[list[float]] - first matrix
-    mat2:list[list[float]] - second matrix
+    mat1:List[List[float]] - first matrix
+    mat2:List[List[float]] - second matrix
 
     Return:
-    list[list[float] - matrix-result
+    List[List[float] - matrix-result
 
     """
     if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[0]):
         raise ValueError("Matrices must have the same shape")
-    res: list[list[float]] = []
+    res: List[List[float]] = []
     for i in range(len(mat1)):
-        row: list = []
+        row: List = []
         for j in range(len(mat1[0])):
             row.append(mat1[i][j] + mat2[i][j])
         res.append(row)
@@ -22,26 +25,26 @@ def matrix_sum(mat1: list[list[float]], mat2: list[list[float]]) -> list[list[fl
 
 
 def matrix_multiply(
-    mat1: list[list[float]], mat2: list[list[float]]
-) -> list[list[float]]:
+    mat1: List[List[float]], mat2: List[List[float]]
+) -> List[List[float]]:
     """
     Multiplies two matrices
 
     Args:
-    mat1:list[list[float]] - first matrix
-    mat2:list[list[float]] - second matrix
+    mat1:List[List[float]] - first matrix
+    mat2:List[List[float]] - second matrix
 
     Return:
-    list[list[float] - matrix-result
+    List[List[float] - matrix-result
 
     """
     if len(mat1[0]) != len(mat2):
         raise ValueError(
             "The number of the coloumns of the first matrix must equal the number of the rows of the second matrix"
         )
-    res: list[list[float]] = []
+    res: List[List[float]] = []
     for i in range(len(mat1)):
-        row: list = []
+        row: List = []
         for j in range(len(mat2[0])):
             temp: float = 0
             for n in range(len(mat1[0])):
@@ -51,15 +54,15 @@ def matrix_multiply(
     return res
 
 
-def matrix_transpose(mat: list[list[float]]) -> list[list[float]]:
+def matrix_transpose(mat: List[List[float]]) -> List[List[float]]:
     """
     Tranposes matrix
 
     Args:
-    mat:list[list[float]] - matrix
+    mat:List[List[float]] - matrix
 
     Return:
-    list[list[float]] - transposed matrix
+    List[List[float]] - transposed matrix
     """
     if not mat:
         raise ValueError("Matrix must be non empty")

@@ -1,13 +1,14 @@
 from math import acos
+from typing import List
 
 
-def vector_multiply(v1: list[float], v2: list[float]) -> float:
+def vector_multiply(v1: List[float], v2: List[float]) -> float:
     """
     Dot prodaction of two vectors
 
     Args:
-    v1: list[float] - first vector
-    v2: list[float] - second vector
+    v1: List[float] - first vector
+    v2: List[float] - second vector
 
     Return:
     float - dot prodaction
@@ -21,12 +22,12 @@ def vector_multiply(v1: list[float], v2: list[float]) -> float:
         raise ValueError("Different vectors' dimensions")
 
 
-def vector_length(v: list[float]) -> float:
+def vector_length(v: List[float]) -> float:
     """
     Calculate length of vector
 
     Args:
-    v: list[float] - vector
+    v: List[float] - vector
 
     Return:
     float - length of vector
@@ -36,13 +37,13 @@ def vector_length(v: list[float]) -> float:
     return (vector_multiply(v, v)) ** 0.5
 
 
-def vector_angle(v1: list[float], v2: list[float]) -> float:
+def vector_angle(v1: List[float], v2: List[float]) -> float:
     """
     Calculate angle between two vectors
 
     Args:
-    v1:list[float] - first vector
-    v2:list[float] - second vector
+    v1:List[float] - first vector
+    v2:List[float] - second vector
 
     Return:
     float - angle in radians
