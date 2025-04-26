@@ -1,6 +1,7 @@
 from typing import Any, Callable, List
 from threading import Thread, Condition
 
+
 class Task:
     """
     Class to store result and status of function
@@ -10,20 +11,21 @@ class Task:
     _func (Callable): wrapped function
     _result (Any): result of function execution
     """
+
     def __init__(self, func: Callable) -> None:
         """
         Inizializing Task object
-        """ 
+        """
         self._isDone: bool = False
         self._func: Callable = func
-    
+
     def __call__(self, *args: Any, **kwargs: Any) -> None:
         """
-        Calling a function, saving result of execution and marking that task was complited 
+        Calling a function, saving result of execution and marking that task was complited
         """
         self._result: Any = self._func(*args, **kwargs)
         self._isDone = True
-    
+
     def get_result(self) -> Any:
         """
         Returning result of function execution
@@ -31,6 +33,7 @@ class Task:
         while not self._isDone:
             pass
         return self._result
+
 
 class ThreadPool:
     """
@@ -43,6 +46,7 @@ class ThreadPool:
     tasks(list[Task]): a list of tasks
     condition(threading.Condition): a condition for tasks
     """
+
     def __init__(self, num: int = 1) -> None:
         """
         Inizializing Task object
